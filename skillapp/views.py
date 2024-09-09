@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .models import CustomUser, Skill, Enrollment, Review
 from .serializers import CustomUserSerializer, SkillSerializer, EnrollmentSerializer, ReviewSerializer
 from .permissions import isAdministrator, CanAddSkill, CanUpdateSkill, CanDeleteSkill, CanJoinSkill
-
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
@@ -22,7 +22,7 @@ class SkillViewSet(viewsets.ModelViewSet):
             permission_classes = [CanDeleteSkill]
         else:
             # Allow all authenticated users to view the list and details
-            permission_classes = [isAdministrator | CanJoinSkill]
+            permission_classes = [IsAuthenticated]
 
         return [permission() for permission in permission_classes]
 
