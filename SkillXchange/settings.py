@@ -82,7 +82,7 @@ AUTH_USER_MODEL = 'skillapp.CustomUser'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Bookstore',
+        'NAME': 'skills',
         'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': 'localhost',

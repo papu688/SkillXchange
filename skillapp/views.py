@@ -20,9 +20,9 @@ class SkillViewSet(viewsets.ModelViewSet):
             permission_classes = [CanUpdateSkill]
         elif self.action in ['destroy']:
             permission_classes = [CanDeleteSkill]
-        elif self.action in ['list', 'retrieve']:
+        else:
             # Allow all authenticated users to view the list and details
-            permission_classes = [isAdministrator]
+            permission_classes = [isAdministrator | CanJoinSkill]
 
         return [permission() for permission in permission_classes]
 
