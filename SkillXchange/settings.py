@@ -73,6 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SkillXchange.wsgi.application'
 
+AUTH_USER_MODEL = 'skillapp.CustomUser'
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
